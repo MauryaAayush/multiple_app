@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+import '../../Controllers/Task_controller.dart';
+import '../../Model/task_model.dart';
+
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final TaskController taskController = Get.put(TaskController());
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[850],
-        leading: Icon(Icons.menu,color: Colors.white,),
+        leading: Icon(Icons.menu, color: Colors.white),
         actions: [
-          Icon(Icons.calendar_today,color: Colors.white,),
+          Icon(Icons.calendar_today, color: Colors.white),
           SizedBox(width: 10),
         ],
       ),
@@ -81,22 +87,33 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Expanded(
-              child: ListView(
-                children: [
-                  buildTaskItem("8:00 AM", "Breakfast with Tim", Icons.check_circle),
-                  buildTaskItem("11:30 AM", "Interview at NBC", Icons.check_circle),
-                  buildTaskItem("14:00 PM", "Team meeting", Icons.people),
-                  buildTaskItem("15:20 PM", "UI design challenge", Icons.design_services),
-                  buildTaskItem("19:00 PM", "Family Lunch", Icons.restaurant),
-                ],
-              ),
+              child: Obx(() {
+                return ListView.builder(
+                  itemCount: taskController.tasks.length,
+                  itemBuilder: (context, index) {
+                    var task = taskController.tasks[index];
+                    return GestureDetector(
+                      onTap: () {
+                        _showTaskDialog(context, task: task, index: index);
+                      },
+                      child: buildTaskItem(
+                        task.time,
+                        task.description,
+                        task.icon,
+                      ),
+                    );
+                  },
+                );
+              }),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add,color: Colors.white,),
+        onPressed: () {
+          _showTaskDialog(context);
+        },
+        child: Icon(Icons.add, color: Colors.white),
         backgroundColor: Colors.teal,
       ),
       backgroundColor: Colors.grey[900],
@@ -140,6 +157,115 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _showTaskDialog(BuildContext context, {Task? task, int? index}) {
+    final timeController = TextEditingController();
+    final descriptionController = TextEditingController();
+    final dateController = TextEditingController();
+
+    if (task != null) {
+      timeController.text = task.time;
+      descriptionController.text = task.description;
+    }
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.grey[850],
+          title: Text(
+            task == null ? 'Add Task' : 'Edit Task',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: dateController,
+                readOnly: true,
+                decoration: InputDecoration(
+                  labelText: 'Date',
+                  labelStyle: TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(),
+                ),
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
+                  );
+                  if (pickedDate != null) {
+                    dateController.text = "${pickedDate.toLocal()}".split(' ')[0];
+                  }
+                },
+                style: TextStyle(color: Colors.white),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: timeController,
+                readOnly: true,
+                decoration: InputDecoration(
+                  labelText: 'Time',
+                  labelStyle: TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(),
+                ),
+                onTap: () async {
+                  TimeOfDay? pickedTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                  if (pickedTime != null) {
+                    final now = DateTime.now();
+                    final dt = DateTime(now.year, now.month, now.day, pickedTime.hour, pickedTime.minute);
+                    timeController.text = "${pickedTime.format(context)}";
+                  }
+                },
+                style: TextStyle(color: Colors.white),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: descriptionController,
+                decoration: InputDecoration(
+                  labelText: 'Task Description',
+                  labelStyle: TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(),
+                ),
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel', style: TextStyle(color: Colors.white)),
+            ),
+            TextButton(
+              onPressed: () {
+                if (task == null) {
+                  taskController.addTask(Task(
+                    time: timeController.text,
+                    description: descriptionController.text,
+                    icon: Icons.task,
+                  ));
+                } else {
+                  taskController.updateTask(index!, Task(
+                    time: timeController.text,
+                    description: descriptionController.text,
+                    icon: Icons.task,
+                  ));
+                }
+                Navigator.of(context).pop();
+              },
+              child: Text(task == null ? 'Add' : 'Update', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
     );
   }
 }
