@@ -12,97 +12,121 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[850],
-        leading: Icon(Icons.menu, color: Colors.white),
-        actions: [
-          Icon(Icons.calendar_today, color: Colors.white),
-          SizedBox(width: 10),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Today's",
-              style: GoogleFonts.roboto(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "Schedule",
-              style: GoogleFonts.roboto(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Wednesday, October 23",
-              style: GoogleFonts.roboto(
-                fontSize: 18,
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(7, (index) {
-                List<String> weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-                return Column(
-                  children: [
-                    Text(
-                      weekDays[index],
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 5),
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: index == 2 ? Colors.teal : Colors.transparent,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          "${21 + index}",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 80.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Today's",
+                        style: GoogleFonts.roboto(
+                          fontSize: 32,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                  ],
-                );
-              }),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: Obx(() {
-                return ListView.builder(
-                  itemCount: taskController.tasks.length,
-                  itemBuilder: (context, index) {
-                    var task = taskController.tasks[index];
-                    return GestureDetector(
-                      onTap: () {
-                        _showTaskDialog(context, task: task, index: index);
+                      Text(
+                        "Schedule",
+                        style: GoogleFonts.roboto(
+                          fontSize: 32,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Wednesday, October 23",
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(7, (index) {
+                      List<String> weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                      return Column(
+                        children: [
+                          Text(
+                            weekDays[index],
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 5),
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: index == 2 ? Colors.teal : Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "${21 + index}",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Obx(() {
+                    return ListView.builder(
+                      itemCount: taskController.tasks.length,
+                      itemBuilder: (context, index) {
+                        var task = taskController.tasks[index];
+                        return GestureDetector(
+                          onTap: () {
+                            _showTaskDialog(context, task: task, index: index);
+                          },
+                          child: buildTaskItem(task, context, index),
+                        );
                       },
-                      child: buildTaskItem(task, context, index),
                     );
-                  },
-                );
-              }),
+                  }),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            top: 30,
+            left: 0,
+            right: 0,
+            child: Container(
+              // color: Colors.grey[850],
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.menu, color: Colors.white),
+                  Icon(Icons.calendar_today, color: Colors.white),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
