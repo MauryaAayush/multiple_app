@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../Controllers/Task_controller.dart';
 import '../../Model/task_model.dart';
 
-
 class HomePage extends StatelessWidget {
   final TaskController taskController = Get.put(TaskController());
 
@@ -96,11 +95,7 @@ class HomePage extends StatelessWidget {
                       onTap: () {
                         _showTaskDialog(context, task: task, index: index);
                       },
-                      child: buildTaskItem(
-                        task.time,
-                        task.description,
-                        task.icon,
-                      ),
+                      child: buildTaskItem(task, context, index),
                     );
                   },
                 );
@@ -120,7 +115,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildTaskItem(String time, String task, IconData icon) {
+  Widget buildTaskItem(Task task, BuildContext context, int index) {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.all(16),
@@ -134,7 +129,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                time,
+                task.time,
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 14,
@@ -142,7 +137,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                task,
+                task.description,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -151,9 +146,31 @@ class HomePage extends StatelessWidget {
             ],
           ),
           Spacer(),
+          PopupMenuButton<String>(
+            onSelected: (String value) {
+              if (value == 'Update') {
+                _showTaskDialog(context, task: task, index: index);
+              } else if (value == 'Delete') {
+                taskController.deleteTask(index);
+              } else if (value == 'Done') {
+                taskController.markTaskAsDone(index);
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return {'Update', 'Delete', 'Done'}.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(
+                    choice,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                );
+              }).toList();
+            },
+          ),
           Icon(
-            icon,
-            color: Colors.teal,
+            task.isDone ? Icons.done : task.icon,
+            color: task.isDone ? Colors.green : Colors.teal,
           ),
         ],
       ),
