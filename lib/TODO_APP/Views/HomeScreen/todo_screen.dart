@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                       width: 30,
                       height: 30,
                       decoration: BoxDecoration(
-                        color: index == 2 ? Colors.blue : Colors.transparent,
+                        color: index == 2 ? Colors.teal : Colors.transparent,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
