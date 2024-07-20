@@ -8,7 +8,7 @@ class TodoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Todo App',style: TextStyle(
+        title: const Text('Todo App',style: TextStyle(
           color: Colors.black
         ),),
       ),
