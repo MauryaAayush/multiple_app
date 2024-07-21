@@ -118,12 +118,12 @@ class LoginPage extends StatelessWidget {
                               onChanged: (value) {
                                 loginController.rememberMe.value = value!;
                               },
-                              activeColor: Colors.green,
+                              activeColor: Color(0xFF40744D),
                             ),
                           ),
                           Text(
                             'Remember Me',
-                            style: TextStyle(color: Colors.green),
+                            style: TextStyle(color: Color(0xFF40744D),),
                           ),
                         ],
                       ),
@@ -133,7 +133,7 @@ class LoginPage extends StatelessWidget {
                         },
                         child: Text(
                           'Forgot Password?',
-                          style: TextStyle(color: Colors.green),
+                          style: TextStyle(color: Color(0xFF40744D),),
                         ),
                       ),
                     ],
@@ -146,7 +146,7 @@ class LoginPage extends StatelessWidget {
                         loginController.login();
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
+                        backgroundColor: Color(0xFF40744D),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -171,7 +171,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           'Sign up',
-                          style: TextStyle(color: Colors.green),
+                          style: TextStyle(color: Color(0xFF40744D),),
                         ),
                       ),
                     ],
