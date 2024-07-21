@@ -168,7 +168,7 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           PopupMenuButton<String>(
             onSelected: (String value) {
               if (value == 'Update') {
