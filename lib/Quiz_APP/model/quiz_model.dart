@@ -60,6 +60,31 @@ List<Questions> getQuestions(){
       options: ["Maharashtra", "Bihar", "Uttar Pradesh", "West Bengal"],
       correctOptionIndex: 2,
     ),
+    Questions(
+      questionText: "Which Indian festival is known as the 'Festival of Lights'?",
+      options: ["Diwali", "Holi", "Eid", "Pongal"],
+      correctOptionIndex: 0,
+    ),
+    Questions(
+      questionText: "What is the official language of the Indian state of Karnataka?",
+      options: ["Tamil", "Telugu", "Kannada", "Malayalam"],
+      correctOptionIndex: 2,
+    ),
+    Questions(
+      questionText: "Which Indian leader is known for his role in the non-violent struggle for India's independence?",
+      options: ["Mahatma Gandhi", "Bhagat Singh", "Jawaharlal Nehru", "Subhas Chandra Bose"],
+      correctOptionIndex: 0,
+    ),
+    Questions(
+      questionText: "What is the currency of India?",
+      options: ["Dollar", "Euro", "Rupee", "Pound"],
+      correctOptionIndex: 2,
+    ),
+    Questions(
+      questionText: "Which Indian state is known for its tea gardens?",
+      options: ["Assam", "West Bengal", "Kerala", "Sikkim"],
+      correctOptionIndex: 0,
+    ),
 
   ];
 }
