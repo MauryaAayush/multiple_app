@@ -1,90 +1,37 @@
 class ProductModel {
-  List<Product>? product;
+  List<Product>? products;
   int? total, skip, limit;
 
-  ProductModel({this.limit, this.skip, this.total, this.product});
+  ProductModel({this.limit, this.skip, this.total, this.products});
 
-  factory ProductModel.fromJson(Map json) {
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-        limit: json['limit'],
-        product:
-            json['products'].map<Product>((e) => Product.fromJson(e)).toList(),
-        skip: json['skip'],
-        total: json['total']);
-  }
-}
-
-class Product {
-  int? id, stock, minimumOrderQuantity;
-  String? title,
-      description,
-      category,
-      brand,
-      warrantyInformation,
-      shippingInformation,
-      availabilityStatus;
-  String? returnPolicy, thumbnail;
-
-  List? images;
-  List<Reviews?> reviews;
-
-  Product(
-      {this.id,
-      this.stock,
-      this.minimumOrderQuantity,
-      this.title,
-      this.description,
-      this.category,
-      this.brand,
-      this.warrantyInformation,
-      this.shippingInformation,
-      this.availabilityStatus,
-      this.returnPolicy,
-      this.thumbnail,
-      this.images,
-      required this.reviews});
-
-  factory Product.fromJson(Map json) {
-    return Product(
-      title: json['title'],
-      description: json['description'],
-      id: json['id'],
-      category: json['category'],
-      availabilityStatus: json['availabilityStatus'],
-      brand: json['brand'] ?? "No Brands",
-      images: json['images'],
-      // .map ((e)=> Product.fromJson(e)).toList(),
-      minimumOrderQuantity: json['minimumOrderQuantity'],
-      returnPolicy: json['returnPolicy'],
-      reviews:
-          json['reviews'].map<Reviews>((e) => Reviews.fromJson(e)).toList(),
-      shippingInformation: json['shippingInformation'],
-      stock: json['stock'],
-      thumbnail: json['thumbnail'],
-      warrantyInformation: json['warrantyInformation'],
-
-      // json['products'].map<Product>((e) => Product.fromJson(e)).toList(),
+      limit: json['limit'],
+      products: (json['products'] as List)
+          .map<Product>((e) => Product.fromJson(e))
+          .toList(),
+      skip: json['skip'],
+      total: json['total'],
     );
   }
 }
 
-class Reviews {
-  int? rating;
-  String? comments, date, reviewerName, reviewerEmail;
+class Product {
+  int? id;
+  String? title, brand, thumbnail;
+  double? price;
+  double? rating;
 
-  Reviews(
-      {this.rating,
-      this.comments,
-      this.date,
-      this.reviewerName,
-      this.reviewerEmail});
+  Product({this.id, this.title, this.brand, this.thumbnail, this.price, this.rating});
 
-  factory Reviews.fromJson(Map json) {
-    return Reviews(
-        comments: json['comment'] ?? "No comments",
-        date: json['date'] ?? "No Dates",
-        rating: json['rating'] ?? "No Rating",
-        reviewerEmail: json['reviewerEmail'] ?? "No Email",
-        reviewerName: json['reviewerName'] ?? "No Name");
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['title'],
+      brand: json['brand'] ?? "No Brand",
+      thumbnail: json['thumbnail'],
+      price: json['price'],
+      rating: json['rating'],
+    );
   }
 }
