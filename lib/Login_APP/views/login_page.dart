@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            bottomRight: Radius.elliptical(150, 150)),
+                            bottomRight: Radius.elliptical(150, 120)),
                         image: DecorationImage(
                             image: AssetImage(
                               'assets/images/pexels-photo-807598.jpeg',
