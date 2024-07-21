@@ -28,7 +28,7 @@ class ProductPage extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.search),
+                Icon(Icons.search,color: Colors.black,size: 24,),
                 SizedBox(width: 10,),
                 Text('Search',style: GoogleFonts.roboto(
                   fontSize: 16
