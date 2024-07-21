@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'API_calling/views/product_screen.dart';
 import 'Login_APP/views/login_page.dart';
+import 'Quiz_APP/views/quiz_screen.dart';
 import 'TODO_APP/Views/HomeScreen/todo_screen.dart';
 
 void main() {
@@ -24,7 +25,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: ProductPage()
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+      home: QuizScreen()
     );
   }
 }
