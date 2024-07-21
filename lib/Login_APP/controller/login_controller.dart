@@ -1,11 +1,43 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class LoginController extends GetxController {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   var isPasswordVisible = false.obs;
+  var rememberMe = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _loadRememberMe();
+  }
+
+  Future<void> _loadRememberMe() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    rememberMe.value = prefs.getBool('rememberMe') ?? false;
+
+    if (rememberMe.value) {
+      emailController.text = prefs.getString('email') ?? '';
+      passwordController.text = prefs.getString('password') ?? '';
+    }
+  }
+
+  Future<void> _saveRememberMe() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('rememberMe', rememberMe.value);
+
+    if (rememberMe.value) {
+      prefs.setString('email', emailController.text);
+      prefs.setString('password', passwordController.text);
+    } else {
+      prefs.remove('email');
+      prefs.remove('password');
+    }
+  }
 
   String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -34,4 +66,5 @@ class LoginController extends GetxController {
       Get.snackbar('Error', 'Please fill in all fields correctly', backgroundColor: Colors.red, colorText: Colors.white);
     }
   }
+
 }
