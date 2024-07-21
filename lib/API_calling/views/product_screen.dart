@@ -12,6 +12,7 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
        leading: Icon(Icons.arrow_back),
         actions: [
           Container(
@@ -19,10 +20,12 @@ class ProductPage extends StatelessWidget {
             height: 50,
             width: 300,
             decoration: const BoxDecoration(
-              color: Colors.blue
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(10))
             ),
           ),
-          Icon(Icons.qr_code_scanner_outlined),
+          
+          const Icon(Icons.qr_code_scanner_outlined),
           SizedBox(
             width: 20,
           )
