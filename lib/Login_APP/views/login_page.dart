@@ -1,11 +1,11 @@
+// login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'login_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/login_controller.dart';
-
 class LoginPage extends StatelessWidget {
-  final loginController = Get.put(LoginController());
+  final LoginController loginController = Get.put(LoginController());
 
   LoginPage({Key? key}) : super(key: key);
 
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
-                  return loginController.validateEmail(value!);
+                  return loginController.validateEmail(value);
                 },
               ),
               SizedBox(height: 20),
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 obscureText: true,
                 validator: (value) {
-                  return loginController.validatePassword(value!);
+                  return loginController.validatePassword(value);
                 },
               ),
               SizedBox(height: 20),
