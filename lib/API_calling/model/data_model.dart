@@ -4,7 +4,7 @@ class ProductModel {
 
   ProductModel({this.limit, this.skip, this.total, this.products});
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
+  factory ProductModel.fromJson(Map json) {
     return ProductModel(
       limit: json['limit'],
       products: (json['products'] as List)
@@ -24,7 +24,7 @@ class Product {
 
   Product({this.id, this.title, this.brand, this.thumbnail, this.price, this.rating});
 
-  factory Product.fromJson(Map<String, dynamic> json) {
+  factory Product.fromJson(Map json) {
     return Product(
       id: json['id'],
       title: json['title'],
