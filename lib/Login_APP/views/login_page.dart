@@ -54,7 +54,9 @@ class LoginPage extends StatelessWidget {
                         !loginController.isPasswordVisible.value;
                       },
                     ),
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                    ),
+
                   ),
                   obscureText: !loginController.isPasswordVisible.value,
                   validator: (value) {
