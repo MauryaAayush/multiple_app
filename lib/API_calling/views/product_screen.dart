@@ -12,7 +12,21 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products'),
+       leading: Icon(Icons.arrow_back),
+        actions: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: 50,
+            width: 300,
+            decoration: const BoxDecoration(
+              color: Colors.blue
+            ),
+          ),
+          Icon(Icons.qr_code_scanner_outlined),
+          SizedBox(
+            width: 20,
+          )
+        ],
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
