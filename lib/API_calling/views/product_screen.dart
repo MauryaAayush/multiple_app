@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/product_controller.dart';
 
@@ -18,11 +19,23 @@ class ProductPage extends StatelessWidget {
         actions: [
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             height: 50,
-            width: 300,
+            width: 285,
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.search),
+                SizedBox(width: 10,),
+                Text('Search',style: GoogleFonts.roboto(
+                  fontSize: 16
+                ),),
+                Spacer(),
+                Icon(Icons.mic)
+              ],
             ),
           ),
           
