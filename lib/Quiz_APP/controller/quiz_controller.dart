@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:multiple_app/Quiz_APP/model/quiz_model.dart';
 import 'package:multiple_app/Quiz_APP/views/quiz_screen.dart';
 
+import '../views/score_screen.dart';
+
 class QuizController extends GetxController{
   var questionIndex = 0.obs;
   var score = 0.obs;
@@ -16,7 +18,7 @@ class QuizController extends GetxController{
     if(questionIndex.value < question.length - 1){
         questionIndex.value++;
     }else{
-      Get.to(ScoreScreen());
+      Get.to(const ScoreScreen());
     }
   }
 
