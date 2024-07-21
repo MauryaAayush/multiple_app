@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           Padding(
@@ -93,18 +92,27 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 20),
                 Expanded(
                   child: Obx(() {
-                    return ListView.builder(
-                      itemCount: taskController.tasks.length,
-                      itemBuilder: (context, index) {
-                        var task = taskController.tasks[index];
-                        return GestureDetector(
-                          onTap: () {
-                            _showTaskDialog(context, task: task, index: index);
-                          },
-                          child: buildTaskItem(task, context, index),
-                        );
-                      },
-                    );
+                    if (taskController.tasks.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'There are no tasks',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      );
+                    } else {
+                      return ListView.builder(
+                        itemCount: taskController.tasks.length,
+                        itemBuilder: (context, index) {
+                          var task = taskController.tasks[index];
+                          return GestureDetector(
+                            onTap: () {
+                              _showTaskDialog(context, task: task, index: index);
+                            },
+                            child: buildTaskItem(task, context, index),
+                          );
+                        },
+                      );
+                    }
                   }),
                 ),
               ],
