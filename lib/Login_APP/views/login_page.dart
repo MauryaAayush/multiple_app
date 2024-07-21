@@ -1,4 +1,3 @@
-// login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,19 +38,29 @@ class LoginPage extends StatelessWidget {
                 },
               ),
               SizedBox(height: 20),
-              TextFormField(
-                controller: loginController.passwordController,
-                decoration: InputDecoration(
-
-                  labelText: 'Password',
-                  border: OutlineInputBorder(
-
+              Obx(
+                    () => TextFormField(
+                  controller: loginController.passwordController,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        loginController.isPasswordVisible.value
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        loginController.isPasswordVisible.value =
+                        !loginController.isPasswordVisible.value;
+                      },
+                    ),
+                    border: OutlineInputBorder(),
                   ),
+                  obscureText: !loginController.isPasswordVisible.value,
+                  validator: (value) {
+                    return loginController.validatePassword(value);
+                  },
                 ),
-                obscureText: true,
-                validator: (value) {
-                  return loginController.validatePassword(value);
-                },
               ),
               SizedBox(height: 20),
               ElevatedButton(

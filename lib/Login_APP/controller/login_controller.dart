@@ -1,11 +1,31 @@
-// login_controller.dart
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class LoginController extends GetxController {
+  final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  var isPasswordVisible = false.obs;
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!GetUtils.isEmail(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+    if (value.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    return null;
+  }
 
   void login() {
     if (formKey.currentState!.validate()) {
@@ -13,23 +33,5 @@ class LoginController extends GetxController {
     } else {
       Get.snackbar('Error', 'Please fill in all fields correctly', backgroundColor: Colors.red, colorText: Colors.white);
     }
-  }
-
-  String? validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email cannot be empty';
-    } else if (!GetUtils.isEmail(value) || !value.endsWith('@gmail.com')) {
-      return 'Invalid email. Must be a @gmail.com';
-    }
-    return null;
-  }
-
-  String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password cannot be empty';
-    } else if (value.length < 8) {
-      return 'Password must be at least 8 characters';
-    }
-    return null;
   }
 }
