@@ -37,24 +37,8 @@ class ProductPage extends StatelessWidget {
         } else if (controller.productModel != null) {
           return Column(
             children: [
-              Container(
-
-                padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                height: 50,
-                width: 250,
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Your Container',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
+              SizedBox(
+                height: 20,
               ),
               Expanded(
                 child: GridView.builder(
