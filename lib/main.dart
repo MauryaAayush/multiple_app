@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Login_APP/views/login_page.dart';
 import 'TODO_APP/Views/HomeScreen/todo_screen.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: HomePage()
+      home: LoginPage()
     );
   }
 }
