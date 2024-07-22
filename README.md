@@ -33,7 +33,7 @@ Welcome to the TODO App built with Flutter and GetX! This app showcases a simple
 
 ###
 <div align="center">
-    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/TODO_APP">👉 📚 Go to dart file 📚 👈</a>
+    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/TODO_APP">👉 📚 Go to project 📚 👈</a>
 </div>
 
  ##  
@@ -67,7 +67,7 @@ Welcome to the Login Page, powered by GetX! This page provides a secure and user
 
 ###
 <div align="center">
-    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/Login_APP">👉 📚 Go to dart file 📚 👈</a>
+    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/Login_APP">👉 📚 Go to project 📚 👈</a>
 </div>
 
  ##  
@@ -98,7 +98,7 @@ Welcome to the Product Page of our application, built using GetX for state manag
 
 ###
 <div align="center">
-    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/API_calling">👉 📚 Go to dart file 📚 👈</a>
+    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/API_calling">👉 📚 Go to project 📚 👈</a>
 </div>
 
 
@@ -132,7 +132,7 @@ Welcome to the Quiz App, an engaging and interactive application built with Flut
 
 ###
 <div align="center">
-    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/Quiz_APP">👉 📚 Go to dart file 📚 👈</a>
+    <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/Quiz_APP">👉 📚 Go to project 📚 👈</a>
 </div>
 
 
