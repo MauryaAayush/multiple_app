@@ -25,7 +25,7 @@ Welcome to the TODO App built with Flutter and GetX! This app showcases a simple
 
 ---
 
-## Login Page
+## <h1 align="center"><i>Login Page</i></h1>
 
 ### Introduction
 Welcome to the Login Page, powered by GetX! This page provides a secure and user-friendly authentication system, ensuring that only authorized users can access the app's features.
@@ -48,7 +48,7 @@ Welcome to the Login Page, powered by GetX! This page provides a secure and user
 
 ---
 
-## API Calling
+## <h1 align="center"><i>API Calling</i></h1>
 
 ### Introduction
 Welcome to the Product Page of our application, built using GetX for state management and API integration. This page dynamically fetches and displays product information, providing a seamless and responsive user experience.
@@ -71,7 +71,7 @@ Welcome to the Product Page of our application, built using GetX for state manag
 
 ---
 
-## Quiz App
+## <h1 align="center"><i>Quiz App</i></h1>
 
 ### Introduction
 Welcome to the Quiz App, an engaging and interactive application built with Flutter and GetX! This app provides a fun and educational experience through a series of quizzes, leveraging GetX for efficient state management and routing.
