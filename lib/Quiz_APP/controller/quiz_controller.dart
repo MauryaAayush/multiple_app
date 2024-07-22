@@ -6,15 +6,16 @@ import '../views/score_screen.dart';
 
 class QuizController extends GetxController{
   var questionIndex = 0.obs;
+  var selectedOption = (-1).obs;
   var score = 0.obs;
 
   List<Questions> question = getQuestions();
 
-  void nextQuestion(int selectedIndex){
-    if(selectedIndex == question[questionIndex.value].correctOptionIndex){
+  void nextQuestion(int selectedIndex) {
+    if (question[questionIndex.value].options[selectedIndex] == question[questionIndex.value].correctOptionIndex) {
       score.value++;
     }
-
+    selectedOption.value = -1;
     if(questionIndex.value < question.length - 1){
         questionIndex.value++;
     }else{
