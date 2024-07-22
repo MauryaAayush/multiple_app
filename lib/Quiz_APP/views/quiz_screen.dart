@@ -13,15 +13,21 @@ class QuizScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-      leading: Icon(Icons.arrow_back_ios_rounded),
-        title: Text('Daily Quiz',style: GoogleFonts.roboto(fontSize: 22,fontWeight: FontWeight.w500),),
+        leading: Icon(Icons.arrow_back_ios_rounded),
+        title: Text(
+          'Daily Quiz',
+          style: GoogleFonts.roboto(fontSize: 22, fontWeight: FontWeight.w500),
+        ),
+        actions: [
+          Obx(() {
+            return Text(
+              "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
+            );
+          }),
+          SizedBox(width: 10,)
+        ],
 
-        // title: Obx(() {
-        //   return Text(
-        //     "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
-        //   );
-        // }),
-        backgroundColor: Colors.white12 ,
+        backgroundColor: Colors.white12,
       ),
       body: Obx(() {
         return Padding(
@@ -46,7 +52,8 @@ class QuizScreen extends StatelessWidget {
                   ],
                 ),
                 child: Text(
-                  quizController.question[quizController.questionIndex.value].questionText,
+                  quizController.question[quizController.questionIndex.value]
+                      .questionText,
                   style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 20,
@@ -58,9 +65,14 @@ class QuizScreen extends StatelessWidget {
               SizedBox(height: 20),
               Expanded(
                 child: ListView.builder(
-                  itemCount: quizController.question[quizController.questionIndex.value].options.length,
+                  itemCount: quizController
+                      .question[quizController.questionIndex.value]
+                      .options
+                      .length,
                   itemBuilder: (context, index) {
-                    final option = quizController.question[quizController.questionIndex.value].options[index];
+                    final option = quizController
+                        .question[quizController.questionIndex.value]
+                        .options[index];
                     return Obx(() {
                       return GestureDetector(
                         onTap: () {
@@ -68,7 +80,8 @@ class QuizScreen extends StatelessWidget {
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(vertical: 8.0),
-                          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 15.0, horizontal: 10.0),
                           decoration: BoxDecoration(
                             color: quizController.selectedOption.value == index
                                 ? Colors.teal.withOpacity(0.3)
@@ -81,7 +94,8 @@ class QuizScreen extends StatelessWidget {
                                 "${String.fromCharCode(65 + index)}. ",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: quizController.selectedOption.value == index
+                                  color: quizController.selectedOption.value ==
+                                          index
                                       ? Colors.black
                                       : Colors.black,
                                 ),
@@ -91,9 +105,11 @@ class QuizScreen extends StatelessWidget {
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: quizController.selectedOption.value == index
-                                        ? Colors.black
-                                        : Colors.black,
+                                    color:
+                                        quizController.selectedOption.value ==
+                                                index
+                                            ? Colors.black
+                                            : Colors.black,
                                   ),
                                 ),
                               ),
@@ -122,7 +138,8 @@ class QuizScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  quizController.nextQuestion(quizController.selectedOption.value);
+                  quizController
+                      .nextQuestion(quizController.selectedOption.value);
                 },
                 child: Text(
                   'Next',
