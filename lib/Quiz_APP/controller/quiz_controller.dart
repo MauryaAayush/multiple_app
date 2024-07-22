@@ -12,7 +12,8 @@ class QuizController extends GetxController{
   List<Questions> question = getQuestions();
 
   void nextQuestion(int selectedIndex) {
-    if (question[questionIndex.value].options[selectedIndex] == question[questionIndex.value].correctOptionIndex) {
+    if (selectedIndex == question[questionIndex.value].correctOptionIndex) {
+      print("if function called");
       score.value++;
     }
     selectedOption.value = -1;

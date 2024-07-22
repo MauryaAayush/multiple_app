@@ -14,18 +14,23 @@ class QuizScreen extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         leading: Icon(Icons.arrow_back_ios_rounded),
-        title: Text(
-          'Daily Quiz',
-          style: GoogleFonts.roboto(fontSize: 22, fontWeight: FontWeight.w500),
-        ),
-        actions: [
-          Obx(() {
-            return Text(
-              "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
-            );
-          }),
-          SizedBox(width: 10,)
-        ],
+        title:  Obx(() {
+          return Text(
+            "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
+          );
+        }),
+        // title: Text(
+        //   'Daily Quiz',
+        //   style: GoogleFonts.roboto(fontSize: 22, fontWeight: FontWeight.w500),
+        // ),
+        // actions: [
+        //   Obx(() {
+        //     return Text(
+        //       "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
+        //     );
+        //   }),
+        //   SizedBox(width: 10,)
+        // ],
 
         backgroundColor: Colors.white12,
       ),
