@@ -13,8 +13,9 @@ class ScoreScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Quiz Score"),
-        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
+        title: const Text("🎉 Your Score 🎉"),
+        backgroundColor: Colors.white12,
       ),
       body: Center(
         child: AnimatedScale(
@@ -41,7 +42,7 @@ class ScoreScreen extends StatelessWidget {
                   ),
                   child: Text(
                     "Your score is: ${quizController.score.value}",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blueAccent),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.teal),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -51,7 +52,7 @@ class ScoreScreen extends StatelessWidget {
                     Get.back();
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blueAccent,
+                    foregroundColor: Colors.white, backgroundColor: Colors.teal,
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),

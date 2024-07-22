@@ -28,7 +28,7 @@ List<Questions> getQuestions(){
     Questions(
       questionText: "Which river is the longest river in India?",
       options: ["Ganges", "Godavari", "Yamuna", "Narmada"],
-      correctOptionIndex: 1,
+      correctOptionIndex: 0,
     ),
     Questions(
       questionText: "In which year did India gain independence from British rule?",
