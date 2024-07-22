@@ -1,6 +1,6 @@
 # Multiple Apps
 
-## TODO App
+## <h1 align="center"><i>TODO APP</i></h1>
 
 ### Introduction
 Welcome to the TODO App built with Flutter and GetX! This app showcases a simple yet powerful implementation of a task management system using the GetX package for state management, dependency injection, and routing.
@@ -13,9 +13,9 @@ Welcome to the TODO App built with Flutter and GetX! This app showcases a simple
 - **Persistent Storage:** Save your tasks locally on your device.
 
 ### Screenshots
-![TODO App Screenshot 1](https://github.com/user-attachments/assets/f40a424e-8b1d-4067-b5d1-4fe974d50e8e)
-![TODO App Screenshot 2](https://github.com/user-attachments/assets/ba0c1153-8713-411b-a7f5-e57cecd2f834)
-![TODO App Screenshot 3](https://github.com/user-attachments/assets/fe2b7829-c984-4752-b328-ad0732f9e8b0)
+<img src="https://github.com/user-attachments/assets/f40a424e-8b1d-4067-b5d1-4fe974d50e8e" height=500px hspace=20>
+<img src="https://github.com/user-attachments/assets/ba0c1153-8713-411b-a7f5-e57cecd2f834" height=500px hspace=20>
+<img src="https://github.com/user-attachments/assets/fe2b7829-c984-4752-b328-ad0732f9e8b0" height=500px hspace=20>
 
 ### Demo Video
 [![TODO App Demo](YOUR_VIDEO_THUMBNAIL_URL)](YOUR_VIDEO_URL)
@@ -37,8 +37,8 @@ Welcome to the Login Page, powered by GetX! This page provides a secure and user
 - **Smooth Navigation:** Seamless transition to the TODO list upon successful login.
 
 ### Screenshots
-![Login Page Screenshot 1](https://github.com/user-attachments/assets/55553532-a7b0-46c0-b337-c1d840b085b2)
-![Login Page Screenshot 2](https://github.com/user-attachments/assets/772c3bea-5577-41f0-b06e-a724f82e7b3a)
+<img src="https://github.com/user-attachments/assets/55553532-a7b0-46c0-b337-c1d840b085b2" height=500px hspace=20>
+<img src="https://github.com/user-attachments/assets/772c3bea-5577-41f0-b06e-a724f82e7b3a" height=500px hspace=20>
 
 ### Demo Video
 [![Login Page Demo](YOUR_VIDEO_THUMBNAIL_URL)](YOUR_VIDEO_URL)
@@ -60,8 +60,8 @@ Welcome to the Product Page of our application, built using GetX for state manag
 - **Error Handling:** Manages and displays errors during data fetching.
 
 ### Screenshots
-![API Calling Screenshot 1](https://github.com/user-attachments/assets/e8f076c3-dae2-4993-9b95-4c81e460d94f)
-![API Calling Screenshot 2](https://github.com/user-attachments/assets/7b03a48c-16a1-436f-9da7-a2244794ee49)
+<img src="https://github.com/user-attachments/assets/e8f076c3-dae2-4993-9b95-4c81e460d94f" height=500px hspace=20>
+<img src="https://github.com/user-attachments/assets/7b03a48c-16a1-436f-9da7-a2244794ee49" height=500px hspace=20>
 
 ### Demo Video
 [![API Calling Demo](YOUR_VIDEO_THUMBNAIL_URL)](YOUR_VIDEO_URL)
@@ -84,8 +84,8 @@ Welcome to the Quiz App, an engaging and interactive application built with Flut
 - **Seamless Navigation:** Easy transition between questions and quiz results.
 
 ### Screenshots
-![Quiz App Screenshot 1](https://github.com/user-attachments/assets/19f8eaa6-73c9-419c-842c-fae44da4f24f)
-![Quiz App Screenshot 2](https://github.com/user-attachments/assets/2e5d94d9-b53c-48af-9f9b-f7b37aaa8fb0)
+<img src="https://github.com/user-attachments/assets/19f8eaa6-73c9-419c-842c-fae44da4f24f" height=500px hspace=20>
+<img src="https://github.com/user-attachments/assets/2e5d94d9-b53c-48af-9f9b-f7b37aaa8fb0" height=500px hspace=20>
 
 ### Demo Video
 [![Quiz App Demo](YOUR_VIDEO_THUMBNAIL_URL)](YOUR_VIDEO_URL)
