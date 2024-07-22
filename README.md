@@ -18,10 +18,12 @@ Welcome to the TODO App built with Flutter and GetX! This app showcases a simple
 <img src="https://github.com/user-attachments/assets/fe2b7829-c984-4752-b328-ad0732f9e8b0" height=500px hspace=20>
 
 ### Demo Video
-<video src = "https://github.com/user-attachments/assets/d3587fa3-b3f8-4592-a261-871b6bb6c5d1">
+<video src = "https://github.com/user-attachments/assets/d3587fa3-b3f8-4592-a261-871b6bb6c5d1">,
 
 ### Go to Project
 [👉 📚 Go to project 📚 👈](https://github.com/MauryaAayush/multiple_app/tree/master/lib/TODO_APP)
+
+
 
 ---
 
@@ -41,7 +43,7 @@ Welcome to the Login Page, powered by GetX! This page provides a secure and user
 <img src="https://github.com/user-attachments/assets/772c3bea-5577-41f0-b06e-a724f82e7b3a" height=500px hspace=20>
 
 ### Demo Video
-<video src = "https://github.com/user-attachments/assets/ab4d0091-2041-4323-a856-7d488b44bf3c">
+<video src = "https://github.com/user-attachments/assets/ab4d0091-2041-4323-a856-7d488b44bf3c">,
 
 ### Go to Project
 [👉 📚 Go to project 📚 👈](https://github.com/MauryaAayush/multiple_app/tree/master/lib/Login_APP)
@@ -64,7 +66,7 @@ Welcome to the Product Page of our application, built using GetX for state manag
 <img src="https://github.com/user-attachments/assets/7b03a48c-16a1-436f-9da7-a2244794ee49" height=500px hspace=20>
 
 ### Demo Video
-<video src = "https://github.com/user-attachments/assets/8cc4b5a6-ec22-456e-a73a-11706c965bf8">
+<video src = "https://github.com/user-attachments/assets/8cc4b5a6-ec22-456e-a73a-11706c965bf8">,
 
 ### Go to Project
 [👉 📚 Go to project 📚 👈](https://github.com/MauryaAayush/multiple_app/tree/master/lib/API_calling)
@@ -88,7 +90,7 @@ Welcome to the Quiz App, an engaging and interactive application built with Flut
 <img src="https://github.com/user-attachments/assets/2e5d94d9-b53c-48af-9f9b-f7b37aaa8fb0" height=500px hspace=20>
 
 ### Demo Video
-<video src = "https://github.com/user-attachments/assets/3243d62b-b8d9-4c78-968c-dd200f9444ea">
+<video src = "https://github.com/user-attachments/assets/3243d62b-b8d9-4c78-968c-dd200f9444ea">,
 
 ### Go to Project
 [👉 📚 Go to project 📚 👈](https://github.com/MauryaAayush/multiple_app/tree/master/lib/Quiz_APP)
