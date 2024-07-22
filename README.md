@@ -101,8 +101,9 @@ Welcome to the Product Page of our application, built using GetX for state manag
     <a href="https://github.com/MauryaAayush/multiple_app/tree/master/lib/API_calling">👉 📚 Go to dart file 📚 👈</a>
 </div>
 
- ##  
-  <h2 align = "center">Quiz App</h2>
+
+ ## 
+ <h2 align = "center">Quiz App</h2>
 
 ## Introduction : 
 Welcome to the Quiz App, an engaging and interactive application built with Flutter and GetX! This app provides a fun and educational experience through a series of quizzes, leveraging GetX for efficient state management and routing.
