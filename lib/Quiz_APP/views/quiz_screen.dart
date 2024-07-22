@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/quiz_controller.dart';
 
@@ -13,7 +14,11 @@ class QuizScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Quiz App"),
+        title: Obx(() {
+          return Text(
+            "Quiz App - Score: ${quizController.score.value}/${quizController.question.length}",
+          );
+        }),
         backgroundColor: Colors.blueAccent,
       ),
       body: Obx(() {
@@ -26,51 +31,70 @@ class QuizScreen extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(12.0),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 4,
+                      blurRadius: 6,
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
-                child: Text(
-                  quizController.question[quizController.questionIndex.value].questionText,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 20),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: quizController.question[quizController.questionIndex.value].options.length,
-                  itemBuilder: (context, index) {
-                    final option = quizController.question[quizController.questionIndex.value].options[index];
-                    return AnimatedOpacity(
-                      opacity: 1.0,
-                      duration: Duration(milliseconds: 300),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white, backgroundColor: Colors.blueAccent,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                          ),
-                          onPressed: () {
-                            quizController.nextQuestion(index);
-                          },
-                          child: Text(
-                            option,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
-                    );
-                  },
+                      child: Text(
+                        quizController.question[quizController.questionIndex.value].questionText,
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Options:",
+                      style: GoogleFonts.roboto(
+                          color: Colors.black.withOpacity(0.7),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: quizController.question[quizController.questionIndex.value].options.length,
+                        itemBuilder: (context, index) {
+                          final option = quizController.question[quizController.questionIndex.value].options[index];
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                padding: EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                              onPressed: () {
+                                quizController.nextQuestion(index);
+                              },
+                              child: Text(
+                                option,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
