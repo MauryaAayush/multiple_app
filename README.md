@@ -1,4 +1,4 @@
-# Multiple Apps
+# Multiple Apps with Getx
 
 ## <h1 align="center"><i>TODO APP</i></h1>
 
