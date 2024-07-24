@@ -24,7 +24,6 @@ Welcome to the TODO App built with Flutter and GetX! This app showcases a simple
 [👉 📚 Go to project 📚 👈](https://github.com/MauryaAayush/multiple_app/tree/master/lib/TODO_APP)
 
 
-
 ---
 
 ## <h1 align="center"><i>Login Page</i></h1>
